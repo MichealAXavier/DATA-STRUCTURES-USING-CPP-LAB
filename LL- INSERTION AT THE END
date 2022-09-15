@@ -1,0 +1,95 @@
+//Linked List – Insertion at the End
+
+#include<iostream.h>
+#include<conio.h>
+class Node
+{
+public:
+    int data;
+    Node *link;
+};
+
+Node* head = NULL;//initialise head pointer
+
+void insertend(int value)
+{
+     //initialise a new node called 'insertnode'
+     Node *insertnode = new Node();
+insertnode->data = value;
+insertnode->link = NULL;
+     //if head pointer holds null then set that to point to the newly inserted node
+     if (head==NULL)
+     head=insertnode;
+     else //if head is not NULL
+     {
+	Node *instemp=head;// traverse the list using a temporary pointer "instemp"
+	while (instemp->link!=NULL) //to identify the last node with null pointer
+	{
+instemp = instemp->link;
+	}
+instemp->link=insertnode;//insert new node
+     }
+}
+// This function traverses the linked list and prints data
+// starting from the first node
+void traverse()
+{
+cout<<"head";
+    Node* tempptr=head;
+    while (tempptr!=NULL)
+    {
+cout<< "-> "<<tempptr->data ;
+tempptr = tempptr->link;
+    }
+cout<<"\n";
+
+}
+
+void main()
+{
+    clrscr();
+    //initialise nodes
+    Node* firstnode = NULL;
+    Node* secondnode = NULL;
+    Node* lastnode = NULL;
+
+    // allocate 3 nodes
+firstnode = new Node();
+secondnode = new Node();
+lastnode = new Node();
+
+    //Assign values to node fields and create links
+firstnode->data = 17; // assign data in first node
+firstnode->link = secondnode; // Link first node with second
+
+secondnode->data = 52; // assign data to second node
+secondnode->link = lastnode;// Link second node with third
+
+lastnode->data = 39; // assign data to third node
+lastnode->link = NULL;// last node in the Linkedlist
+
+    //set head point to the first node
+    head=firstnode;
+
+    // display purpose
+cout<<"\n";
+cout<<"Linked list before insertion";
+cout<<"\n";
+
+    // function for traversal before insertion
+traverse();
+
+    //function to insert at the end
+insertend(45);
+
+    // display purpose
+cout<<"\n";
+cout<<"Linked list after insertion at the end";
+cout<<"\n";
+
+    // function for traversal after insertion
+traverse();
+    getch();
+}
+
+
