@@ -1,0 +1,20 @@
+//There are N seats in a cricket stadium. As part of the promotions for a match, every 7th seat gets a 7-up T-shirt. The first 200 seats are allocated for VIPs and last 400 seats are unreserved. These seats are not eligible for the T-shirts. Write a c++ program to find out which seats are eligible to get T-shirt in the upcoming match. 
+
+
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+clrscr();
+int n,i,l,f,m;
+cout<<"enter the total number of seats \n ";
+cin>>n;
+l=n-400;
+cout<<"\n The eligible seats are \n";
+for (i=201;i<l-1;i++)
+{
+i=i+6;
+cout<<i<<"\n";
+}
+getch();
+}
