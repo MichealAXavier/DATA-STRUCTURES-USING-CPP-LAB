@@ -1,0 +1,81 @@
+// Linked List - Deletion in the beginning
+#include<iostream.h>
+#include<conio.h>
+class Node
+{
+public:
+    int data;
+    Node *link;
+};
+
+Node* head = NULL;//initialise head pointer
+
+void deletebeginning()
+{
+	Node *deltemp=head;// traverse the list using a temporary pointer "deltemp"
+deltemp = deltemp->link;
+	head=deltemp;
+}
+// This function traverses the linked list and prints data
+// starting from the first node
+void traverse()
+{
+cout<<"head";
+    Node* tempptr=head;
+    while (tempptr!=NULL)
+    {
+cout<< "-> "<<tempptr->data ;
+tempptr = tempptr->link;
+    }
+cout<<"\n";
+
+}
+
+void main()
+{
+    clrscr();
+    //initialise nodes
+    Node* firstnode = NULL;
+    Node* secondnode = NULL;
+    Node* lastnode = NULL;
+
+    // allocate 3 nodes
+firstnode = new Node();
+secondnode = new Node();
+lastnode = new Node();
+
+    //Assign values to node fields and create links
+firstnode->data = 17; // assign data in first node
+firstnode->link = secondnode; // Link first node with second
+
+secondnode->data = 52; // assign data to second node
+secondnode->link = lastnode;// Link second node with third
+
+lastnode->data = 39; // assign data to third node
+lastnode->link = NULL;// last node in the Linkedlist
+
+    //set head point to the first node
+    head=firstnode;
+
+    // display purpose
+cout<<"\n";
+cout<<"Linked list before deltion";
+cout<<"\n";
+
+    // function for traversal before deletion
+traverse();
+
+    //function to delete at the beginning
+deletebeginning();
+
+    // display purpose
+cout<<"\n";
+cout<<"Linked list after deletion at the beginning";
+cout<<"\n";
+
+    // function for traversal after deletion
+traverse();
+    getch();
+}
+
+
